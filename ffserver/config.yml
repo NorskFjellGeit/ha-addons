@@ -10,7 +10,7 @@ arch:
   - armhf
   - armv7
   - i386
-image: docker.io/norskfjellgeit/ha-ffserver:latest
+image: docker.io/norskfjellgeit/ha-ffserver
 panel_icon: mdi:camera
 panel_title: FFServer UI
 options:
