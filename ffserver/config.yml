@@ -4,7 +4,7 @@ description: "FFServer for creating MJPEG Stream and Still image urls from IP-Ca
 version: 1.0.2
 slug: "ffserver"
 init: false
-webui: http://[HOST]:[PORT:8090]
+webui: http://[HOST]:[PORT:8080]
 arch:
   - aarch64
   - amd64
@@ -29,6 +29,6 @@ schema:
   camera_fps: int
   camera_still_fps: int
 ports:
-  8090/tcp: 8090
+  8080/tcp: 8080
 ports_description:
-  8090/tcp: Webcam HTTP
+  8080/tcp: Webcam HTTP
