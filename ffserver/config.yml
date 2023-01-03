@@ -17,7 +17,7 @@ image: docker.io/norskfjellgeit/ha-ffserver
 panel_icon: mdi:camera
 panel_title: FFServer UI
 options:
-  camera_url: ""
+  camera_url: "rtsp://10.0.0.6:554/s0"
   camera_width: 1920
   camera_height: 1080
   camera_fps: 2
