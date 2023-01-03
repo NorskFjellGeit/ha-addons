@@ -1,0 +1,7 @@
+---
+channel: stable
+addons:
+  ffserver:
+    repository: norskfjellgeit/ha-ffserver
+    target: ffserver
+    image: norskfjellgeit/ha-ffserver
