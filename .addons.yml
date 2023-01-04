@@ -1,7 +1,7 @@
 ---
 channel: stable
 addons:
-  rtsp2mjpeg:
-    repository: norskfjellgeit/ha-rtsp2mjpeg
-    target: rtsp2mjpeg
-    image: docker.io/norskfjellgeit/ha-rtsp2mjpeg
+  ffserver:
+    repository: norskfjellgeit/ha-ffserver
+    target: ffserver
+    image: docker.io/norskfjellgeit/ha-ffserver
