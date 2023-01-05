@@ -1,0 +1,22 @@
+---
+version: 0.0.1
+slug: powerwalker_ups
+name: PowerWalker UPS
+description: Control a PowerWalker UPS with Home Assistant
+url: https://github.com/NorskFjellGeit/ha-powerwalker
+arch:
+  - amd64
+# discovery:
+#   - mqtt
+hassio_api: true
+image: norskfjellgeit/ha-powerwalker
+init: false
+options:
+  device: null
+  log_level: info
+ports:
+  3000/tcp: null
+schema:
+  device: device(subsystem=tty)
+  log_level: list(silly|debug|verbose|http|info|warn|error)?
+stage: stable
