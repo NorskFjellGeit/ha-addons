@@ -17,6 +17,7 @@ options:
 ports:
   3000/tcp: null
 schema:
-  device: device(subsystem=tty)
+  device:
+    - device: device
   log_level: list(silly|debug|verbose|http|info|warn|error)?
 stage: stable
