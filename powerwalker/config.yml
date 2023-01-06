@@ -17,8 +17,6 @@ options:
 ports:
   3000/tcp: null
 schema:
-  device:
-    - device: device
-      type: match(0764)
+  device: devices()
   log_level: list(silly|debug|verbose|http|info|warn|error)?
 stage: stable
