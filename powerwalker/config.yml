@@ -19,5 +19,6 @@ ports:
 schema:
   device:
     - device: device
+      type: match(0764)
   log_level: list(silly|debug|verbose|http|info|warn|error)?
 stage: stable
