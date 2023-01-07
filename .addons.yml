@@ -5,7 +5,8 @@ addons:
     repository: norskfjellgeit/ha-ffserver
     target: ffserver
     image: docker.io/norskfjellgeit/ha-ffserver
-  powerwalker_ups:
-    repository: norskfjellgeit/ha-powerwalker
-    target: powerwalker_ups
-    image: docker.io/norskfjellgeit/ha-powerwalker
+# NOTE! Work in progress
+#  powerwalker_ups:
+#    repository: norskfjellgeit/ha-powerwalker
+#    target: powerwalker_ups
+#    image: docker.io/norskfjellgeit/ha-powerwalker
