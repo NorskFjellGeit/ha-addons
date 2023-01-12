@@ -1,0 +1,33 @@
+---
+name: "Jottacloud"
+description: "Jottacloud Addon for taking backups of Home Assistant"
+version: 1.0.0
+slug: "jottacloud"
+init: false
+webui: http://[HOST]:[PORT:8080]
+arch:
+  - amd64
+  - armhf
+  - arm64
+  - i386
+map: 
+  - "ssl"
+  - "backup:rw"
+  - "config"
+hassio_api: true
+hassio_role: homeassistant
+auth_api: true
+ingress: true
+image: docker.io/norskfjellgeit/ha-jottacloud
+panel_icon: mdi:cloud-upload
+panel_title: Jottacloud UI
+options:
+  jottacli_token: null
+  jottacli_device: "homeassistant"
+schema:
+  jottacli_token: str
+  jottacli_device: str
+ports:
+  8090/tcp: 8080
+ports_description:
+  8090/tcp: WebGUI

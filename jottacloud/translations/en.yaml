@@ -1,0 +1,9 @@
+configuration:
+  jottacli_token:
+    name: Jottacloud CLI Token
+    description: >-
+      Jotta-CLI Token https://www.jottacloud.com/web/secure
+  jottacli_device:
+    name: Jottacloud Device Name
+    description: >-
+      The name of the device to put backups in
