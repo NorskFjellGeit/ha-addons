@@ -2,6 +2,7 @@
 name: "Jottacloud"
 description: "Jottacloud Addon for taking backups of Home Assistant"
 version: 1.0.0
+url: https://github.com/NorskFjellGeit/ha-addons/tree/main/jottacloud
 slug: "jottacloud"
 init: false
 webui: http://[HOST]:[PORT:8080]

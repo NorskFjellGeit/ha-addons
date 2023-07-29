@@ -3,7 +3,7 @@ version: 0.0.1
 slug: powerwalker_ups
 name: PowerWalker UPS
 description: Control a PowerWalker UPS with Home Assistant
-url: https://github.com/NorskFjellGeit/ha-powerwalker
+url: https://github.com/NorskFjellGeit/ha-addons/tree/main/powerwalker
 arch:
   - amd64
 # discovery:
@@ -17,6 +17,6 @@ options:
 ports:
   3000/tcp: null
 schema:
-  device: device
+  device: device(subsystem=tty)
   log_level: list(silly|debug|verbose|http|info|warn|error)?
 stage: stable

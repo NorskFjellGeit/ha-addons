@@ -1,4 +1,3 @@
----
 configuration:
   camera_url:
     name: Camera RTSP URL
