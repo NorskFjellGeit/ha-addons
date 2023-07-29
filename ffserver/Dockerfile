@@ -10,7 +10,7 @@ WORKDIR /tmp
 RUN apk add --no-cache nginx ffmpeg font-noto
 
 RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
-    wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
+    wget "https://github.com/NorskFjellGeit/ha-addons/raw/main/.data/ffmpeg-3.3.4-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
     && ls -lasth /tmp \
@@ -19,7 +19,7 @@ RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
     && rm -rf /tmp/ffmpeg*; \
   fi
 RUN if [ "$BUILD_ARCH" = "i386" ]; then \
-    wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
+    wget "https://github.com/NorskFjellGeit/ha-addons/raw/main/.data/ffmpeg-3.3.4-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
     && ls -lasth /tmp \
@@ -28,7 +28,7 @@ RUN if [ "$BUILD_ARCH" = "i386" ]; then \
     && rm -rf /tmp/ffmpeg*; \
   fi
 RUN if [ "$BUILD_ARCH" = "armhf" ]; then \
-    wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-armel-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
+    wget "https://github.com/NorskFjellGeit/ha-addons/raw/main/.data/ffmpeg-3.3.4-armel-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
     && ls -lasth /tmp \
@@ -38,7 +38,7 @@ RUN if [ "$BUILD_ARCH" = "armhf" ]; then \
   fi
 
 RUN if [ "$BUILD_ARCH" = "armv7" ]; then \
-    wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-armhf-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
+    wget "https://github.com/NorskFjellGeit/ha-addons/raw/main/.data/ffmpeg-3.3.4-armhf-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
     && ls -lasth /tmp \
@@ -48,7 +48,7 @@ RUN if [ "$BUILD_ARCH" = "armv7" ]; then \
   fi
 
 RUN if [ "$BUILD_ARCH" = "aarch64" ]; then \
-    wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-arm64-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
+    wget "https://github.com/NorskFjellGeit/ha-addons/raw/main/.data/ffmpeg-3.3.4-arm64-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
     && ls -lasth /tmp \
