@@ -9,7 +9,7 @@ arch:
 # discovery:
 #   - mqtt
 hassio_api: true
-image: norskfjellgeit/ha-powerwalker
+image: ghcr.io/norskfjellgeit/ha-powerwalker
 init: false
 options:
   device: null
