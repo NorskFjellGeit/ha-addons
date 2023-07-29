@@ -19,4 +19,3 @@ ports:
 schema:
   device: device(subsystem=tty)
   log_level: list(silly|debug|verbose|http|info|warn|error)?
-stage: stable
