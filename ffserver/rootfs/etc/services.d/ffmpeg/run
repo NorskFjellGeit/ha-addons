@@ -1,0 +1,12 @@
+#!/command/with-contenv bashio
+set -e
+
+bashio::log.info "Starting FFMpeg..."
+
+declare camera_url
+
+camera_url=$(bashio::config 'camera_url')
+
+# Run
+# Font /usr/share/fonts/noto/NotoSansMono-Regular.ttf
+exec /usr/local/bin/ffmpeg -hide_banner -loglevel warning -rtsp_transport tcp -use_wallclock_as_timestamps 1 -i ${camera_url} -async 1 -vsync 1 http://127.0.0.1:8091/feed.ffm
