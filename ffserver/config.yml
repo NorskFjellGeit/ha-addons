@@ -1,7 +1,7 @@
 ---
 name: "FFServer"
 description: "FFServer for creating MJPEG Stream and Still image urls from IP-Camera"
-version: 1.0.0
+version: 1.5.0
 url: https://github.com/NorskFjellGeit/ha-addons/tree/main/ffserver
 slug: "ffserver"
 init: false
