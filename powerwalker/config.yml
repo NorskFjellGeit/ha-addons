@@ -4,6 +4,7 @@ slug: powerwalker_ups
 name: PowerWalker UPS (In Development)
 description: Control a PowerWalker UPS with Home Assistant
 url: https://github.com/NorskFjellGeit/ha-addons/tree/main/powerwalker
+stage: experimental
 arch:
   - amd64
 # discovery:
