@@ -3,14 +3,13 @@ FROM ${BUILD_FROM}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG TARGETPLATFORM
-ARG BUILDPLATFORM
+ARG BUILD_ARCH
 
 WORKDIR /tmp
 
 RUN apk add --no-cache nginx ffmpeg font-noto
 
-RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
@@ -19,7 +18,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     && mv /tmp/ffmpeg/ffmpeg /usr/local/bin/ \
     && rm -rf /tmp/ffmpeg*; \
   fi
-RUN if [ "$TARGETPLATFORM" = "linux/386" ]; then \
+RUN if [ "$BUILD_ARCH" = "i386" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
@@ -28,7 +27,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/386" ]; then \
     && mv /tmp/ffmpeg/ffmpeg /usr/local/bin/ \
     && rm -rf /tmp/ffmpeg*; \
   fi
-RUN if [ "$TARGETPLATFORM" = "linux/arm/v6" ]; then \
+RUN if [ "$BUILD_ARCH" = "armhf" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-armel-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
@@ -38,7 +37,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm/v6" ]; then \
     && rm -rf /tmp/ffmpeg*; \
   fi
 
-RUN if [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
+RUN if [ "$BUILD_ARCH" = "armv7" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-armhf-32bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
@@ -48,7 +47,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
     && rm -rf /tmp/ffmpeg*; \
   fi
 
-RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
+RUN if [ "$BUILD_ARCH" = "aarch64" ]; then \
     wget "https://github.com/NorskFjellGeit/ha-ffserver/raw/main/.data/ffmpeg-3.3.4-arm64-64bit-static.tar.xz" -O "ffmpeg.tar.xz" \
     && mkdir /tmp/ffmpeg \
     && tar xJf /tmp/ffmpeg.tar.xz -C /tmp/ffmpeg --strip-components=1 \
