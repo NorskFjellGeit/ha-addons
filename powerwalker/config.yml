@@ -6,7 +6,11 @@ description: Control a PowerWalker UPS with Home Assistant
 url: https://github.com/NorskFjellGeit/ha-addons/tree/main/powerwalker
 stage: experimental
 arch:
+  - aarch64
   - amd64
+  - armhf
+  - armv7
+  - i386
 # discovery:
 #   - mqtt
 hassio_api: true
