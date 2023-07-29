@@ -1,1 +1,12 @@
 ---
+build_from:
+  aarch64: "ghcr.io/hassio-addons/base:12.2.7"
+  amd64: "ghcr.io/hassio-addons/base:12.2.7"
+  armhf: "ghcr.io/hassio-addons/base:12.2.7"
+  armv7: "ghcr.io/hassio-addons/base:12.2.7"
+  i386: "ghcr.io/hassio-addons/base:12.2.7"
+labels:
+  org.opencontainers.image.title: "Home Assistant Add-on: PowerWalker UPS"
+  org.opencontainers.image.description: "Integrate PowerWalker UPS to HA"
+  org.opencontainers.image.source: "https://github.com/NorskFjellGeit/ha-addons"
+  org.opencontainers.image.licenses: "Apache License 2.0"
