@@ -68,6 +68,7 @@ jobs:
 
     steps:
       - name: Check out repository
+      # (du kan oppgradere til v4 om du vil, men ikke nødvendig for fixen)
         uses: actions/checkout@v3.5.3
 
       - name: Get information
@@ -80,14 +81,14 @@ jobs:
         id: check
         run: |
           if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
-             echo "build_arch=true" >> $GITHUB_OUTPUT;
-             echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
-             if [[ -z "${{ github.head_ref }}" ]] && [[ "${{ github.event_name }}" == "push" ]]; then
-                 echo "BUILD_ARGS=" >> $GITHUB_ENV;
-             fi
-           else
-             echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
-             echo "build_arch=false" >> $GITHUB_OUTPUT;
+            echo "build_arch=true" >> $GITHUB_OUTPUT;
+            echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
+            if [[ -z "${{ github.head_ref }}" ]] && [[ "${{ github.event_name }}" == "push" ]]; then
+              echo "BUILD_ARGS=" >> $GITHUB_ENV;
+            fi
+          else
+            echo "${{ matrix.arch }} is not a valid arch for ${{ matrix.addon }}, skipping build";
+            echo "build_arch=false" >> $GITHUB_OUTPUT;
           fi
 
       - name: Login to GitHub Container Registry
@@ -97,6 +98,27 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      # --- FIX DEL 1: Installer nyere cosign ---
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3.9.2
+        with:
+          # pin gjerne; v2.5.3 eller nyere funker fint
+          cosign-release: 'v2.5.3'
+
+      # --- FIX DEL 2: Nullstill Sigstore-cache og init TUF eksplisitt ---
+      - name: Reset Sigstore cache & initialize TUF
+        run: |
+          rm -rf ~/.sigstore ~/.cache/sigstore
+          cosign initialize \
+            --mirror https://tuf-repo-cdn.sigstore.dev \
+            --root   https://tuf-repo-cdn.sigstore.dev/root.json
+
+      # (VALGFRITT NØDFALLBACK)
+      # - name: Temporarily bypass TUF (not recommended long-term)
+      #   run: |
+      #     export SIGSTORE_NO_TUF=1
+      #     cosign version
 
       - name: Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
@@ -109,3 +131,4 @@ jobs:
             --image "${{ steps.check.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
+
